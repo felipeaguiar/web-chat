@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-   
-    <changeSet author="felipeaguiar" id="738f9678-52c0-482e-92ae-344d9cf7609d">
-        <createTable tableName="usuario">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="nome" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="email" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="cpf" type="VARCHAR(11)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
+
+	<changeSet author="felipeaguiar" id="738f9678-52c0-482e-92ae-344d9cf7609d">
+		<createTable tableName="usuarios">
+			<column name="id" type="BIGINT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="nome" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="cpf" type="VARCHAR(11)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="felipeaguiar" id="09773010-9b8d-4680-9538-677881093c63">
+		<createSequence sequenceName="seq_usuarios" /> 
+	</changeSet>
 </databaseChangeLog>
