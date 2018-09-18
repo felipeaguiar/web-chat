@@ -6,7 +6,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.felipeaguiarfullstack.webchat.web.model.Usuario;
-import com.felipeaguiarfullstack.webchat.web.repository.UsuarioRepository;
+import com.felipeaguiarfullstack.webchat.web.service.UsuarioService;
 
 @Named
 public class CadastroUsuarioBean implements Serializable {
@@ -14,12 +14,13 @@ public class CadastroUsuarioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	UsuarioService usuarioService;
 	
 	private Usuario usuario = new Usuario();
 	
 	public String cadastrar() {
-		usuarioRepository.save(usuario);
+		usuarioService.cadastrar(usuario);
+		
 		usuario = new Usuario();
 		return "login?faces-redirect=true";
 		
