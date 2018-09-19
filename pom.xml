@@ -65,6 +65,11 @@
 		</dependency>
 		
 		<dependency>
+		    <groupId>com.sendgrid</groupId>
+		    <artifactId>sendgrid-java</artifactId>
+		</dependency>
+		
+		<dependency>
 		    <groupId>com.oracle</groupId>
 		    <artifactId>ojdbc6</artifactId>
 		    <version>1.0</version>
