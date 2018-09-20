@@ -25,6 +25,8 @@ public class Usuario {
 	
 	@NotNull
 	private String cpf;
+	
+	private Boolean primeiroLogin = true;
 
 	public Long getId() {
 		return Id;
@@ -56,6 +58,15 @@ public class Usuario {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+
+	public Boolean getPrimeiroLogin() {
+		return primeiroLogin;
+	}
+
+	public void setPrimeiroLogin(Boolean primeiroLogin) {
+		this.primeiroLogin = primeiroLogin;
 	}
 
 	@Override

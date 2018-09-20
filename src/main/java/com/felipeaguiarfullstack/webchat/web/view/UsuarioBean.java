@@ -9,7 +9,7 @@ import com.felipeaguiarfullstack.webchat.web.model.Usuario;
 import com.felipeaguiarfullstack.webchat.web.service.UsuarioService;
 
 @Named
-public class CadastroUsuarioBean implements Serializable {
+public class UsuarioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

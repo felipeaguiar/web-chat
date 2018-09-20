@@ -38,7 +38,7 @@ function onMessageReceived(payload) {
     var divMessage = document.createElement('div');
 
     var span = document.createElement('span');
-    var usuarioText = document.createTextNode(message.sender);
+    var usuarioText = document.createTextNode(message.sender + ': ');
     span.appendChild(usuarioText);
 
     var messageText = document.createTextNode(message.content);
@@ -64,13 +64,13 @@ function onError(error) {
 }
 
 window.onload = function() {
-    campoMensagem = document.getElementById('enviar:campo-mensagem');
+    campoMensagem = document.getElementById('campo-mensagem');
     chat = document.getElementById('chat');
 
-    var botaoEnviar = document.getElementById('enviar:botao-enviar');
+    var botaoEnviar = document.getElementById('botao-enviar');
     botaoEnviar.addEventListener('click', enviarMensagem, true)
 
-    username = document.getElementById('formUsuario:usuario').value.trim();
+    username = document.getElementById('usuario').value.trim();
 
     if(username) {
         var socket = new SockJS('/ws');

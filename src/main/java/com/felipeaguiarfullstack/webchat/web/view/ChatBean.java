@@ -8,11 +8,14 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
+import com.felipeaguiarfullstack.webchat.web.model.Usuario;
 import com.felipeaguiarfullstack.webchat.web.service.UsuarioService;
 
 @Named
-public class SegurancaBean implements Serializable {
+public class ChatBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,27 +29,20 @@ public class SegurancaBean implements Serializable {
 
 	@PostConstruct
 	public void inicializar() {
-		nomeUsuario = "Felipe";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null) {
+			Usuario usuario = usuarioService.iniciarChat(authentication.getName(), getEnderecoIp());		
+			nomeUsuario = usuario.getNome();
+		}
 	}
-
-	public String login() {
-
+	
+	private String getEnderecoIp() {
 		String enderecoIp = getRequest().getHeader("X-FORWARDED-FOR");
 		if (enderecoIp == null) {
 			enderecoIp = getRequest().getRemoteAddr();
 		}
-
-		try {
-			usuarioService.login(email, cpf, enderecoIp);
-			return "chat?faces-redirect=true";
-		} catch (Exception e) {
-			return null;
-		}
-	}
-
-	public String logout() {
-		usuarioService.logout();
-		return "login?faces-redirect=true";
+		
+		return enderecoIp;
 	}
 
 	public HttpServletRequest getRequest() {

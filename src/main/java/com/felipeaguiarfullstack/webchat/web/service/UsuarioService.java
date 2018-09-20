@@ -19,16 +19,16 @@ public class UsuarioService {
 		usuarioRepository.save(usuario);
 	}
 
-	public void login(String email, String cpf, String enderecoIp) {
-		boolean primeiroLogin = true;
+	public Usuario iniciarChat(String email, String enderecoIp) {
+		Usuario usuario = usuarioRepository.findByEmail(email).get();
 		
-		if (primeiroLogin) {			
+		if (usuario.getPrimeiroLogin()) {			
 			emailService.enviar(email, enderecoIp);
+			
+			usuario.setPrimeiroLogin(false);
+			usuarioRepository.save(usuario);
 		}
+		
+		return usuario;
 	}
-	
-	public void logout() {
-		// TODO
-	}
-	
 }

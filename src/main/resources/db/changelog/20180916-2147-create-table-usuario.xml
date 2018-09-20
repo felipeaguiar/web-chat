@@ -11,17 +11,24 @@
 			<column name="id" type="BIGINT">
 				<constraints primaryKey="true" />
 			</column>
-			<column name="nome" type="VARCHAR(50)">
+			<column name="nome" type="VARCHAR(30)">
 				<constraints nullable="false" />
 			</column>
 			<column name="email" type="VARCHAR(50)">
 				<constraints nullable="false" />
 			</column>
-			<column name="cpf" type="VARCHAR(11)">
+			<column name="cpf" type="VARCHAR(14)">
+				<constraints nullable="false" />
+			</column>
+			<column name="primeiro_login" type="NUMBER(1)" defaultValueNumeric="1">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
 	</changeSet>
+	
+	<changeSet author="felipeaguiar" id="939c8468-f722-46be-9703-a1aa94f9c835">
+        <addUniqueConstraint columnNames="email" tableName="usuarios"/>
+    </changeSet>
 	
 	<changeSet author="felipeaguiar" id="09773010-9b8d-4680-9538-677881093c63">
 		<createSequence sequenceName="seq_usuarios" /> 
