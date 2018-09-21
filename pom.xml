@@ -75,13 +75,19 @@
 		</dependency>
 		
 		<dependency>
-		    <groupId>com.oracle</groupId>
+		    <groupId>com.oracle.jdbc</groupId>
 		    <artifactId>ojdbc6</artifactId>
-		    <version>1.0</version>
-		    <scope>system</scope>
-		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</systemPath>
+		    <version>11.1.0.6.0</version>
 		</dependency>
+
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>Oracle</id>
+			<url>http://repo.boundlessgeo.com/main/</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
