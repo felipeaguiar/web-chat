@@ -23,6 +23,9 @@
 			<column name="primeiro_login" type="NUMBER(1)" defaultValueNumeric="1">
 				<constraints nullable="false" />
 			</column>
+			<column name="conectado" type="NUMBER(1)" defaultValueNumeric="0">
+				<constraints nullable="false" />
+			</column>
 		</createTable>
 	</changeSet>
 	

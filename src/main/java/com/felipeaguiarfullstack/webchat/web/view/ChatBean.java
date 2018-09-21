@@ -3,6 +3,7 @@ package com.felipeaguiarfullstack.webchat.web.view;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +16,10 @@ import com.felipeaguiarfullstack.webchat.web.model.Usuario;
 import com.felipeaguiarfullstack.webchat.web.service.UsuarioService;
 
 @Named
+@RequestScoped
 public class ChatBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private String email;
-	private String cpf;
 
 	private String nomeUsuario;
 
@@ -48,22 +47,6 @@ public class ChatBean implements Serializable {
 	public HttpServletRequest getRequest() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return (HttpServletRequest) context.getExternalContext().getRequest();
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public String getNomeUsuario() {

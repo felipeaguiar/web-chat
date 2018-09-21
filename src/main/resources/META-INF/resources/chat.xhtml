@@ -16,21 +16,23 @@
 		<div id="painel-superior">
 			<div id="chat"></div>
 			<div id="usuarios">
-				<h:form onsubmit="this.action='#{request.contextPath}/logout';">
-					<p:commandButton value="Logout" ajax="false" />
+				<h:form  prependId="false" onsubmit="this.action='#{request.contextPath}/logout';">
+					<p:commandButton id="botao-logout" value="Logout" ajax="false" />
 				</h:form>
 			</div>
 		</div>
 		<div id="painel-inferior">
 			<h:form prependId="false">
-				<p:inputText id="campo-mensagem" />
+				<div>
+					<p:inputText id="campo-mensagem" />
+				</div>
 				<p:commandButton id="botao-enviar" value="Enviar" ajax="false" />
 			</h:form>
 		</div>
 	</div>
 
 	<h:form prependId="false">
-		<h:inputHidden value="#{segurancaBean.nomeUsuario}" id="usuario" />
+		<h:inputHidden value="#{chatBean.nomeUsuario}" id="usuario" />
 	</h:form>
 
 	<h:outputScript library="js" name="sockjs.min.js" />

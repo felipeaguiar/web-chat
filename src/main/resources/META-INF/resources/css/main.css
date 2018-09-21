@@ -1,11 +1,19 @@
-html,body{
-    width: 100%;
+html, body{
+	width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    
     height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
 }
 
 body{
     position: relative;
-    font-family: AArial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 #conteudo{
@@ -13,8 +21,7 @@ body{
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    border:1px solid #333;      
+    right: 0;     
 }
 
 #painel-superior{
@@ -22,7 +29,7 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    bottom: 100px;
+    bottom: 60px;
 }
 
 #chat{
@@ -31,7 +38,8 @@ body{
     bottom: 0;
     left: 0;
     right: 200px; 
-    background:#666;  
+    background:#d4d4d4;
+    padding: 10px;
     overflow: auto;    
 }
 
@@ -41,7 +49,7 @@ body{
     bottom: 0;
     width: 200px;
     right: 0; 
-    background:#999; 
+    background:#9fcfff; 
     overflow: auto;   
 }
 
@@ -49,25 +57,43 @@ body{
     text-align: right;
 }
 
+#usuarios #botao-logout {
+	width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
+
 #painel-inferior{
-    height: 100px;
-    background:#EEE;
     position: absolute;
+    height: 60px;
+    background:#EEE;
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
 
-#painel-inferior textarea{
+#painel-inferior div{
     position: absolute;
     top: 10px;
     bottom: 10px;
     left: 10px;
-    right: 120px; 
-    resize: none;
+    right: 120px;
 }
 
-#painel-inferior input[type=submit]{
+#painel-inferior #campo-mensagem{
+	width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    
+    height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
+}
+
+#painel-inferior #botao-enviar{
     position: absolute;
     top: 10px;
     bottom: 10px;

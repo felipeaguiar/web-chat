@@ -60,7 +60,8 @@ function onConnected() {
 }
 
 function onError(error) {
-    alert('Erro ao conectar com o servidor');
+    console.error('Erro ao conectar com o servidor');
+    window.location.href = '/logout';
 }
 
 window.onload = function() {
